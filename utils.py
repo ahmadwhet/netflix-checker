@@ -4,7 +4,7 @@ import json
 import shutil
 
 def print_banner():
-    print(colorama.Fore.RED + """
+    print(colorama.Fore.GREEN + """
   _   _      _    __ _ _         _____            _    _           
  | \\ | |    | |  / _| (_)       / ____|          | |  (_)          
  |  \\| | ___| |_| |_| |___  __ | |     ___   ___ | | ___  ___  ___ 
