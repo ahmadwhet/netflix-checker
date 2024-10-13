@@ -8,7 +8,7 @@ import html
 import json
 from utils import *
 
-# Global counters
+# Global counters all
 total_working = 0
 total_fails = 0
 total_unsubscribed = 0
