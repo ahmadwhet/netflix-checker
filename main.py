@@ -18,6 +18,7 @@ lock = threading.Lock()
 # Global paths
 cookies_folder = "cookies"  # Directory where your cookies are stored
 hits_folder = "hits"  # Directory to save working cookies
+nosubs_folder = "nosubs" #Directory success login but without subs active
 failures_folder = "failures"  # Directory to move failed cookies
 broken_folder = "broken"  # Directory to move broken cookies
 
@@ -89,8 +90,8 @@ def handle_successful_login(cookie_file, info, is_subscribed):
     if not is_subscribed:
         with lock:
             total_unsubscribed += 1
-        print(colorama.Fore.MAGENTA + f"> Login successful with {cookie_file}. But the user is not subscribed. Moved to failures!" + colorama.Fore.RESET)
-        shutil.move(cookie_file, os.path.join(failures_folder, os.path.basename(cookie_file)))
+        print(colorama.Fore.BLUE + f"> Login successful with {cookie_file}. But the user is not subscribed. Moved to nosubs!" + colorama.Fore.RESET)
+        shutil.move(cookie_file, os.path.join(nosubs_folder, os.path.basename(cookie_file)))
         return
 
     with lock:
@@ -166,7 +167,7 @@ def printStats():
     print(colorama.Fore.CYAN + f"> Statistics:" + colorama.Fore.RESET)
     print(f"  - 📈 Total checked: {total_checked}")
     print(f"  - ✅ Working cookies: {colorama.Fore.GREEN}{total_working}{colorama.Fore.RESET}")
-    print(f"  - ❌ Working but no subscription: {colorama.Fore.MAGENTA}{total_unsubscribed}{colorama.Fore.RESET}")
+    print(f"  - ❌ Working but no subscription: {colorama.Fore.BLUE}{total_unsubscribed}{colorama.Fore.RESET}")
     print(f"  - 💀 Dead cookies: {colorama.Fore.RED}{total_fails}{colorama.Fore.RESET}")
     print("\n")
 
