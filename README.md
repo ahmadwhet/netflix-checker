@@ -3,7 +3,7 @@ This tools helps you automate the process of checking if a Netflix cookie is val
 
 ## How to run the script?
 1. Install the required packages by running `pip install -r requirements.txt`.
-2. A new directory called `cookies` will automatically be created. Put all of your cookies in it.
+2. Create new directory called `cookies` will automatically be created. Put all of your cookies in it.
 3. Run the script by running `python3 main.py`.
 
 > [!NOTE]
